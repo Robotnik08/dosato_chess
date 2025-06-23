@@ -11,6 +11,22 @@ void init(void* vm);
 DosatoFunctionMapList functions;
 
 // function forward declaration
-Value sumTest (ValueArray args, bool debug);
+Value chessInit(ValueArray args, bool debug);
+Value chessLoadFEN(ValueArray args, bool debug);
+Value chessGetFEN(ValueArray args, bool debug);
+Value chessPrintBoard(ValueArray args, bool debug);
+Value chessGetFromLocation(ValueArray args, bool debug);
+Value chessGetFriendly(ValueArray args, bool debug);
+Value chessGetPieceMask(ValueArray args, bool debug);
+Value chessGetIndex(ValueArray args, bool debug);
+Value chessGenerateMoves(ValueArray args, bool debug);
+Value chessGetAttackedMap(ValueArray args, bool debug);
+Value chessgetAttackedMapOnlyPawn(ValueArray args, bool debug);
+Value chessUpdateBoardState(ValueArray args, bool debug);
+Value chessGetMoveNotation(ValueArray args, bool debug);
+Value chessMakeMove(ValueArray args, bool debug);
+Value chessUnMakeMove(ValueArray args, bool debug);
+Value chessGetZobristHash(ValueArray args, bool debug);
+Value chessGetBoardState(ValueArray args, bool debug);
 
 #endif // MAIN_H

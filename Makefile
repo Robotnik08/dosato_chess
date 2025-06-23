@@ -8,8 +8,8 @@ CFLAGS = -Wall -Werror -Wno-format
 INCLUDES = -I./dosato_source -I./src/include
 
 # Linker flags
-LDFLAGS_WINDOWS = -L./dosato_source -llibdosato -L./src/lib -lmingw32
-LDFLAGS_LINUX = -L./dosato_source -ldosato -L./src/lib -lm -Wno-format -fPIC
+LDFLAGS_WINDOWS = -L./dosato_source -llibdosato -L./src/lib -lmingw32 -lchesslib
+LDFLAGS_LINUX = -L./dosato_source -ldosato -L./src/lib -lm -Wno-format -fPIC -lchess
 
 # Source files
 SRCS = main.c
@@ -18,7 +18,7 @@ SRCS = main.c
 OBJS = $(SRCS:.c=.o)
 
 # Target
-TARGET = my_lib
+TARGET = chess
 
 # Detect OS
 ifeq ($(OS),Windows_NT)
