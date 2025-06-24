@@ -29,6 +29,7 @@ void init(void* vm) {
     write_DosatoFunctionMapList(&functions, (DosatoFunctionMap){"chessUnMakeMove", chessUnMakeMove});
     write_DosatoFunctionMapList(&functions, (DosatoFunctionMap){"chessGetZobristHash", chessGetZobristHash});
     write_DosatoFunctionMapList(&functions, (DosatoFunctionMap){"chessGetBoardState", chessGetBoardState});
+    write_DosatoFunctionMapList(&functions, (DosatoFunctionMap){"chessStringToMove", chessStringToMove});
 }
 
 
@@ -287,4 +288,18 @@ Value chessGetBoardState(ValueArray args, bool debug) {
 
     // return the board object
     return RETURN_OBJECT(board_object);
+}
+
+Value chessStringToMove(ValueArray args, bool debug) {
+    if (args.count != 1) {
+        return BUILD_EXCEPTION(E_WRONG_NUMBER_OF_ARGUMENTS);
+    }
+
+    Value move_string_value = GET_ARG(args, 0);
+    CAST_SAFE(move_string_value, TYPE_STRING);
+
+    char* move_string = AS_STRING(move_string_value);
+    Move move = stringToMove(move_string);
+
+    return BUILD_USHORT(move);
 }

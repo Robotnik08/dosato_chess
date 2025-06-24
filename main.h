@@ -28,5 +28,6 @@ Value chessMakeMove(ValueArray args, bool debug);
 Value chessUnMakeMove(ValueArray args, bool debug);
 Value chessGetZobristHash(ValueArray args, bool debug);
 Value chessGetBoardState(ValueArray args, bool debug);
+Value chessStringToMove(ValueArray args, bool debug);
 
 #endif // MAIN_H
